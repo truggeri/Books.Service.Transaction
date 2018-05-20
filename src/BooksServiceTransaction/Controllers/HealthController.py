@@ -1,11 +1,14 @@
-from BooksServiceTransaction import app
-from flask import jsonify, request
+from flask import jsonify
+from flask_classful import FlaskView, route
 
-@app.route("/ok")
-def Ok():
-    return "ok\n", 200
+class HealthController(FlaskView):
+    """A class of health related endpoints"""
 
-@app.route("/health")
-def Health():
-    result = {'healthy' : True}
-    return (jsonify(result), 200)
+    @route("/ok")
+    def Ok(self):
+        return ("ok\n", 200)
+
+    @route("/health")
+    def Health(self):
+        result = {'healthy' : True}
+        return (jsonify(result), 200)

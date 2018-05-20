@@ -1,4 +1,5 @@
 from flask import Flask
 app = Flask(__name__)
 
-import BooksServiceTransaction.Controllers.HealthController
+from BooksServiceTransaction.Controllers.HealthController import *
+HealthController.register(app, route_base='/')
