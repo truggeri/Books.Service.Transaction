@@ -1,6 +1,5 @@
 from BooksServiceTransaction import app
-from flask import request
-import flask
+from flask import jsonify, request
 
 @app.route("/ok")
 def Ok():
@@ -9,4 +8,4 @@ def Ok():
 @app.route("/health")
 def Health():
     result = {'healthy' : True}
-    return (flask.jsonify(result), 200)
+    return (jsonify(result), 200)
