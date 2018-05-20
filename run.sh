@@ -1,5 +1,5 @@
 #! /bin/bash
 
-cd src/Books.Service.Transaction
-pip install -r requirements.txt
-python3 main.py
+cd src
+pip wheel -e .
+FLASK_APP=BooksServiceTransaction flask run
