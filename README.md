@@ -9,7 +9,7 @@ This service is intended to be the source of truth for transactions in the Books
 To run the service,
 
 ```bash
-./run.sh
+./scripts/run.sh
 ```
 
 This script will start the flask app that hosts the service.
@@ -33,7 +33,7 @@ docker run -p 5000:5000/tcp --name books-transaction books-service-transaction
 To run unit tests,
 
 ```bash
-./test.sh
+./scripts/test.sh
 ```
 
 This script will simply call the appropriate python programs to run all py unittests.
@@ -43,7 +43,7 @@ This script will simply call the appropriate python programs to run all py unitt
 This project is attempting to use the new python type checking. For the time being it is run using [mypy](http://mypy-lang.org/). To run the type checking,
 
 ```bash
-./typecheck.sh
+./scripts/typecheck.sh
 ```
 
 I found [this PyCon 2018 video](https://www.youtube.com/watch?v=QCGwDOk-pIs) very informative. I don't have any plans to use [Pyre](https://pyre-check.org/) until there is an option to ignore missing imports.
