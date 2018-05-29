@@ -1,3 +1,3 @@
 #! /bin/bash
 
-cd test/Books.Service.TransactionTests && python3 main.py --verbose
+cd test/ && python3 -m unittest --verbose --locals BooksServiceTransactionTests
