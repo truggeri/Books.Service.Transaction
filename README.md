@@ -37,3 +37,13 @@ To run unit tests,
 ```
 
 This script will simply call the appropriate python programs to run all py unittests.
+
+## Type checking
+
+This project is attempting to use the new python type checking. For the time being it is run using [mypy](http://mypy-lang.org/). To run the type checking,
+
+```bash
+./typecheck.sh
+```
+
+I found [this PyCon 2018 video](https://www.youtube.com/watch?v=QCGwDOk-pIs) very informative. I don't have any plans to use [Pyre](https://pyre-check.org/) until there is an option to ignore missing imports.
