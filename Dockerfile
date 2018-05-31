@@ -4,7 +4,7 @@ RUN apt-get update -y
 COPY ./src /app
 WORKDIR /app
 
-RUN pip install --requirement ./BooksServiceTransaction/requirements.txt
+RUN pip install --requirement ./BooksServiceTransaction/requirements.txt uwsgi
 
 ENV FLASK_APP=BooksServiceTransaction
-ENTRYPOINT ["flask", "run", "-h", "0.0.0.0"]
+ENTRYPOINT [ "uwsgi", "--http", "0.0.0.0:5000", "--module", "BooksServiceTransaction:app", "--enable-threads" ]
