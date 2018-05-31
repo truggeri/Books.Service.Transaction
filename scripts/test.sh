@@ -1,3 +1,4 @@
 #! /bin/bash
 
-cd test/ && python3 -m unittest --verbose --locals BooksServiceTransactionTests
+pip install pytest
+cd test/BooksServiceTransactionTests && pytest --verbose
