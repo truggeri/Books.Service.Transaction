@@ -12,7 +12,7 @@ To run the service,
 ./scripts/run.sh
 ```
 
-This script will start the flask app that hosts the service.
+This script will start a [flask web server](http://flask.pocoo.org/docs/1.0/deploying/). Note that this is not suitable as a production ready server.
 
 ## Using Docker
 
@@ -36,7 +36,7 @@ To run unit tests,
 ./scripts/test.sh
 ```
 
-This script will simply call the appropriate python programs to run all py unittests.
+This script will simply call the appropriate python programs to run all unit tests with [pytest](https://docs.pytest.org/en/latest/index.html).
 
 ## Type checking
 
