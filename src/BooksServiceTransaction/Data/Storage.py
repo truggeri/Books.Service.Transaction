@@ -1,6 +1,6 @@
-"""A class for getting and retrieving data"""
+""" Service for data storage in a database """
 
-class DataStorage():
+class Storage():
     
     def __init__(self):
         pass

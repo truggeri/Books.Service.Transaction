@@ -2,8 +2,8 @@ import pytest
     
 @pytest.fixture
 def data_storage():
-    from BooksServiceTransaction.Data.Storage import DataStorage
-    return DataStorage()
+    from BooksServiceTransaction.Data.Storage import Storage
+    return Storage()
 
 def test_health_whenok_thentrue(data_storage):
     result = data_storage.Health()
