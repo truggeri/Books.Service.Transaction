@@ -1,3 +1,3 @@
 """A collection of controller classes"""
 
-from .HealthController import HealthController
+from .Health import HealthController
