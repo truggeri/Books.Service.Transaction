@@ -1,5 +1,4 @@
 #! /bin/bash
 
-pip install --requirement ./src/BooksServiceTransaction/requirements.txt \
-            --requirement ./test/requirements.txt
+pip install --requirement ./requirements.txt
 cd test/BooksServiceTransactionTests && pytest --verbose

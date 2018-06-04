@@ -1,7 +1,5 @@
 #! /bin/bash
 
-pip install --requirement ./src/BooksServiceTransaction/requirements.txt \
-            --requirement ./test/requirements.txt \
-            coverage
+pip install --requirement ./requirements.txt
 cd test/BooksServiceTransactionTests && coverage run -m pytest
 coverage report | grep 'src/BooksServiceTransaction/'

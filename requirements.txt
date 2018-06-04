@@ -1,3 +1,9 @@
 flask
 flask-classful
 typing
+pytest
+mock
+pytest_mock
+coverage
+wusgi
+mypi
