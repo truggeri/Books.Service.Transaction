@@ -1,4 +1,5 @@
-from flask import jsonify
+import json
+
 from flask_classful import FlaskView, route
 from typing import Tuple
 
@@ -12,4 +13,4 @@ class HealthController(FlaskView):
     @route("health", methods=["GET"])
     def health(self):
         result = {"Healthy" : True}
-        return (jsonify(result), 200)
+        return (json.dumps(result, indent=4), 200)
