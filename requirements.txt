@@ -6,4 +6,4 @@ mock
 pytest_mock
 coverage
 uwsgi
-mypi
+mypy
