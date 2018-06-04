@@ -2,7 +2,7 @@ import pytest
     
 @pytest.fixture
 def health_controller():
-    from BooksServiceTransaction.Controllers import HealthController
+    from BooksServiceTransaction.controllers import HealthController
     return HealthController()
 
 def test_health_whenok_then200(health_controller):
