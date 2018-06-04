@@ -1,13 +1,17 @@
 #! /bin/bash
 
-rm -rf src/BooksServiceTransaction/__pycache__
+rm -rf transaction/__pycache__
+rm -rf transaction/*/__pycache__
 
-rm -rf test/BooksServiceTransactionTests/.pytest_cache
-rm -rf test/BooksServiceTransactionTests/__pycache__
+rm -rf tests/.pytest_cache
+rm -rf tests/__pycache__
+rm -rf .pytest_cache
 
-rm -rf src/bin
-rm -rf src/build
-rm -rf src/obj
-rm -rf src/*.egg-info
+rm -rf ./bin
+rm -rf ./build
+rm -rf ./obj
+rm -rf ./*.egg-info
 
 rm -rf .mypy_cache
+
+rm -rf tests/.coverage
