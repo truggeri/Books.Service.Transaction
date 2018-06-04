@@ -5,11 +5,11 @@ from typing import Tuple
 class HealthController(FlaskView):
     """A class of health related endpoints"""
 
-    @route("ok")
+    @route("ok", methods=["GET"])
     def ok(self) -> Tuple[str, int]:
         return ("ok", 200)
 
-    @route("health")
+    @route("health", methods=["GET"])
     def health(self):
-        result = {'healthy' : True}
+        result = {"Healthy" : True}
         return (jsonify(result), 200)
