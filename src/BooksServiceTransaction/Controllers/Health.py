@@ -6,10 +6,10 @@ class HealthController(FlaskView):
     """A class of health related endpoints"""
 
     @route("ok")
-    def Ok(self) -> Tuple[str, int]:
+    def ok(self) -> Tuple[str, int]:
         return ("ok", 200)
 
     @route("health")
-    def Health(self):
+    def health(self):
         result = {'healthy' : True}
         return (jsonify(result), 200)
