@@ -15,3 +15,4 @@ def test_health_whenhealth_then200(health_controller):
     assert resultInt == 200
     exp_string = '{\n    "Healthy": true\n}'
     assert exp_string == resultJson
+    

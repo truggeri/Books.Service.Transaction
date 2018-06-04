@@ -1,7 +1,11 @@
+""" Health controller.
+    Endpoints for container health checks.
+"""
+
 import json
+from typing import Tuple
 
 from flask_classful import FlaskView, route
-from typing import Tuple
 
 class HealthController(FlaskView):
     """A class of health related endpoints"""

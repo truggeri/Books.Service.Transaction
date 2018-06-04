@@ -1,4 +1,10 @@
+""" Data store module
+"""
+
 class DataStore():
+    """ Data store class
+        Provides generic functionallity to store data with CRUD methods.
+    """
 
     def __init__(self, connection_string):
         self._conn_str = connection_string
@@ -14,4 +20,3 @@ class DataStore():
 
     def delete(self):
         print(">> delete")
-    

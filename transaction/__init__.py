@@ -1,8 +1,12 @@
+""" Package for Books.Service.Transaction service.
+    Provides web api for transactions in the Book app.
+"""
+
 from flask import Flask
 
 from .controllers import health, transaction
 
-app = Flask(__name__)
+FLASKAPP = Flask(__name__)
 
-health.HealthController.register(app, route_base="/")
-transaction.Transaction.register(app, route_base="/transaction/")
+health.HealthController.register(FLASKAPP, route_base="/")
+transaction.Transaction.register(FLASKAPP, route_base="/transaction/")
