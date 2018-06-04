@@ -1,7 +1,0 @@
-import BooksServiceTransaction.controllers as controllers
-from flask import Flask
-
-app = Flask(__name__)
-
-controllers.HealthController.register(app, route_base='/')
-controllers.Transaction.register(app, route_base='/transaction/')
