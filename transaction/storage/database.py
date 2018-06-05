@@ -1,22 +1,20 @@
 """ Data store module
+    Acts as a layer between service and implementation of a database
 """
 
-class DataStore():
-    """ Data store class
-        Provides generic functionallity to store data with CRUD methods.
-    """
+import boto3
 
-    def __init__(self, connection_string):
-        self._conn_str = connection_string
+_conn_str = None
 
-    def create(self):
-        print(">> create")
+def create():
+    print(">> create")
 
-    def read(self):
-        print(">> read")
+def read():
+    print(">> read")
 
-    def update(self):
-        print(">> update")
+def update():
+    print(">> update")
 
-    def delete(self):
-        print(">> delete")
+def delete():
+    print(">> delete")
+    
