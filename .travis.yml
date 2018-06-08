@@ -7,3 +7,5 @@ install:
 script:
   - pylint --output-format=colorized --errors-only transaction 
   - pytest
+  - coverage run -m pytest
+  - coveralls
