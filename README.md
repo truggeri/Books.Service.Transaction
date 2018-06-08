@@ -3,6 +3,7 @@
 Service for transactions in the Books project.
 
 [![Build Status](https://travis-ci.org/truggeri/Books.Service.Transaction.svg?branch=master)](https://travis-ci.org/truggeri/Books.Service.Transaction)
+[![Coverage Status](https://coveralls.io/repos/github/truggeri/Books.Service.Transaction/badge.svg?branch=master)](https://coveralls.io/github/truggeri/Books.Service.Transaction?branch=master)
 
 This service is intended to be the source of truth for transactions in the Books project. This includes reads and writes, though those may be handled in isolation. This is a python 3 project.
 
