@@ -1,8 +1,10 @@
 boto3
+coverage
 flask
 flask-classful
-typing
-pytest
-coverage
-uwsgi
+flask_graphql
 mypy
+pytest
+python-coveralls
+typing
+uwsgi
