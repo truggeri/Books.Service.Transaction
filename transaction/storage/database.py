@@ -7,11 +7,11 @@ from cloudant.client import CouchDB
 class Database:
     client: CouchDB
     
-    def __init__(self, username, password):
+    def __init__(self, username, password) -> None:
         self.username = username
         self.password = password
     
-    def connect(self):
+    def connect(self) -> None:
         self.client = CouchDB(
             user=self.username,
             auth_token=self.password,
@@ -29,6 +29,6 @@ class Database:
     def delete(self):
         print(">> delete")
 
-    def disconnect(self):
+    def disconnect(self) -> None:
         self.client.disconnect()
     
