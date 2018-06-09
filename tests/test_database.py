@@ -17,9 +17,10 @@ def transaction_db():
     return fixture
 
 @patch("transaction.storage.database.CouchDB")
-def test_database_whenconnect_thenconnectcalled(mock_couch, transaction_db):
+def test_database_whenconnect_thenconnectcalled(patch_couch, transaction_db):
     transaction_db.connect()
-    mock_couch.assert_called_with(user="fakeuser", auth_token="fakepass", url=ANY)
+
+    assert patch_couch.call_args == ({"user": "fakeuser", "auth_token": "fakepass", "url": ANY}, )
 
 def test_database_whendisconnect_thendisconnectcalled(transaction_db):
     transaction_db.disconnect()
