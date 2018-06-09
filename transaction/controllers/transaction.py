@@ -4,7 +4,7 @@
 
 from flask_classful import FlaskView, route
 
-from transaction.storage import database
+from transaction.storage.database import Database
 
 class Transaction(FlaskView):
 
@@ -13,5 +13,5 @@ class Transaction(FlaskView):
 
     @route("/", methods=["POST"])
     def post(self):
-        database.create()
+        Database("blank", "password1234")
         return ("ok", 200)
