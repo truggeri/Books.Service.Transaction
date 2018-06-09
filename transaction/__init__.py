@@ -5,6 +5,7 @@
 from flask import Flask
 
 from .controllers import health, transaction
+from . import config
 
 FLASKAPP = Flask(__name__)
 
