@@ -6,7 +6,7 @@ install:
   - pip install pylint python-coveralls
 script:
   - pylint --output-format=colorized --errors-only transaction
-  - mypy --verbose --ignore-missing-imports --show-error-context ./transaction/*.py 
+  - mypy --ignore-missing-imports --show-error-context ./transaction/*.py 
   - pytest
   - coverage run --source=transaction/ --module pytest
   - coveralls
