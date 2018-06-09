@@ -1,3 +1,3 @@
 #! /bin/bash
 
-FLASK_APP=transaction/__init__.py flask run
+FLASK_APP=transaction FLASK_ENV=development FLASK_DEBUG=false flask run
