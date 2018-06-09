@@ -6,6 +6,5 @@ flask_graphql
 mock
 mypy
 pytest
-python-coveralls
 typing
 uwsgi

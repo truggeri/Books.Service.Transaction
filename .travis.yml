@@ -3,9 +3,9 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-  - pip install pylint
+  - pip install pylint python-coveralls
 script:
-  - pylint --output-format=colorized --errors-only transaction 
+  - pylint --output-format=colorized --errors-only transaction
   - pytest
   - coverage run --source=transaction/ --module pytest
   - coveralls
