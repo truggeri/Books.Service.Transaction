@@ -7,12 +7,15 @@ from cloudant.client import CouchDB
 import pytest
 
 from context import transaction
+from transaction.config import cfg
 
 mocked_couch = MagicMock(spec=CouchDB)
     
 @pytest.fixture
 def transaction_db():
-    fixture = transaction.storage.database.Database("fakeuser", "fakepass")
+    cfg["DB_USERNAME"] = "fakeuser"
+    cfg["DB_PASSWORD"] = "fakepass"
+    fixture = transaction.storage.database.Database()
     fixture.client = mocked_couch
     return fixture
 

@@ -4,18 +4,19 @@
 
 from cloudant.client import CouchDB
 
+from transaction.config import cfg
+
 class Database:
     client: CouchDB
     
-    def __init__(self, username, password) -> None:
-        self.username = username
-        self.password = password
+    def __init__(self) -> None:
+        pass
     
     def connect(self) -> None:
         self.client = CouchDB(
-            user=self.username,
-            auth_token=self.password,
-            url="http://127.0.0.1:5984")
+            url=cfg["DB_HOST_URL"],
+            user=cfg["DB_USERNAME"],
+            auth_token=cfg["DB_PASSWORD"])
 
     def create(self):
         print(">> create")
