@@ -13,5 +13,5 @@ class Transaction(FlaskView):
 
     @route("/", methods=["POST"])
     def post(self):
-        Database("blank", "password1234")
+        Database()
         return ("ok", 200)
