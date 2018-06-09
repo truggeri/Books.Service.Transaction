@@ -2,19 +2,33 @@
     Acts as a layer between service and implementation of a database
 """
 
-import boto3
+from cloudant.client import CouchDB
 
-_conn_str = None
+class Database:
+    client: CouchDB
+    
+    def __init__(self, username, password) -> None:
+        self.username = username
+        self.password = password
+    
+    def connect(self) -> None:
+        self.client = CouchDB(
+            user=self.username,
+            auth_token=self.password,
+            url="http://127.0.0.1:5984")
 
-def create():
-    print(">> create")
+    def create(self):
+        print(">> create")
 
-def read():
-    print(">> read")
+    def read(self):
+        print(">> read")
 
-def update():
-    print(">> update")
+    def update(self):
+        print(">> update")
 
-def delete():
-    print(">> delete")
+    def delete(self):
+        print(">> delete")
+
+    def disconnect(self) -> None:
+        self.client.disconnect()
     
