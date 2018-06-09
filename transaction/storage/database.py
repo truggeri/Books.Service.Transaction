@@ -5,13 +5,17 @@
 from cloudant.client import CouchDB
 
 class Database:
+    client: CouchDB
     
     def __init__(self, username, password):
         self.username = username
         self.password = password
     
     def connect(self):
-        self.client = CouchDB(user=self.username, auth_token=self.password, url="http://127.0.0.1:5984")
+        self.client = CouchDB(
+            user=self.username,
+            auth_token=self.password,
+            url="http://127.0.0.1:5984")
 
     def create(self):
         print(">> create")
