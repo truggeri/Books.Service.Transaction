@@ -3,6 +3,7 @@ coverage
 flask
 flask-classful
 flask_graphql
+mock
 mypy
 pytest
 python-coveralls
