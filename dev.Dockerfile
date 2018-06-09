@@ -8,7 +8,7 @@ RUN pip install --requirement requirements.txt
 
 ENV FLASK_APP=transaction
 ENV FLASK_ENV=development
-ENV FLASK_DEBUG=false
+ENV FLASK_DEBUG=1
 
 EXPOSE 5000
 ENTRYPOINT [ "flask", "run", "--host=0.0.0.0" ]
