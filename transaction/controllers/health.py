@@ -7,7 +7,7 @@ import json
 from flask_classful import FlaskView, route
 from typing import Tuple
 
-from transaction.storage.database import Database
+from transaction.storage import database 
 
 class HealthController(FlaskView):
     """A class of health related endpoints"""
@@ -23,10 +23,9 @@ class HealthController(FlaskView):
 
     @route("health/db", methods=["GET"])
     def db_health(self) -> Tuple[str, int]:
-        client = Database()
-        client.connect()
-        (result, info) = client.health()
-        client.disconnect()
+        database.connect()
+        (result, info) = database.health()
+        database.disconnect()
         if not result:
             return (json.dumps({"Healthy": False}), 502)
         return (json.dumps(info, indent=4), 200)
