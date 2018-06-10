@@ -20,6 +20,12 @@ class Database:
             url=cfg["DB_HOST_URL"],
             connect=True)
 
+    def health(self) -> Tuple[bool, dict]:
+        result = self.client.session()
+        if "ok" not in result:
+            return (False, {})
+        return (True, result)
+    
     def disconnect(self) -> None:
         self.client.disconnect()
 
