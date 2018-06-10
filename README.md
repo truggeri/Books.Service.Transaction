@@ -17,12 +17,18 @@ To run the service,
 
 This script will start a [flask web server](http://flask.pocoo.org/docs/1.0/deploying/). Note that this is not suitable as a production ready server.
 
-## Using Docker Compose
+## Using Docker
 
-This project includes a `docker-compose.yml` file for setting up the entire development environment. This will stand up a local CouchDB instance and connect it to the local instance of the service. Note that there are some requirements to setup the database for the first time that are not part of the compose file. To use, simple run,
+The included Dockerfile can be used to build a container image that runs this project. To build the image,
 
 ```bash
-docker-compose --file docker/docker-compose.yml up
+docker build -t books-service-transaction:latest .
+```
+
+And then to start the container,
+
+```bash
+docker run -p 5000:5000/tcp --name books-transaction books-service-transaction
 ```
 
 ## Testing

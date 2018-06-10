@@ -3,7 +3,7 @@ services:
   flask:
     build:
       context: .
-      dockerfile: docker/dev.Dockerfile
+      dockerfile: dev.Dockerfile
     depends_on:
       - "couchdb"
     env_file:
