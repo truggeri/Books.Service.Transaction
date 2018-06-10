@@ -15,15 +15,15 @@ mocked_couch = MagicMock(spec=CouchDB)
 def transaction_db():
     cfg["DB_USERNAME"] = "fakeuser"
     cfg["DB_PASSWORD"] = "fakepass"
-    fixture = transaction.storage.database.Database()
-    fixture.client = mocked_couch
+    fixture = transaction.storage.database
+    fixture.__client = mocked_couch
     return fixture
 
 @patch("transaction.storage.database.CouchDB")
 def test_database_whenconnect_thenconnectcalled(patch_couch, transaction_db):
     transaction_db.connect()
 
-    assert patch_couch.call_args == ({"user": "fakeuser", "auth_token": "fakepass", "url": ANY}, )
+    assert patch_couch.call_args == ({"user": "fakeuser", "auth_token": "fakepass", "url": ANY, "connect": True}, )
 
 def test_database_whendisconnect_thendisconnectcalled(transaction_db):
     transaction_db.disconnect()

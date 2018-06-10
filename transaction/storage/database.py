@@ -3,33 +3,26 @@
 """
 
 from cloudant.client import CouchDB
+from typing import Tuple
 
 from transaction.config import cfg
 
-class Database:
-    client: CouchDB
+__client: CouchDB
     
-    def __init__(self) -> None:
-        pass
-    
-    def connect(self) -> None:
-        self.client = CouchDB(
-            url=cfg["DB_HOST_URL"],
-            user=cfg["DB_USERNAME"],
-            auth_token=cfg["DB_PASSWORD"])
+def connect() -> None:
+    global __client
+    __client = CouchDB(
+        user=cfg["DB_USERNAME"],
+        auth_token=cfg["DB_PASSWORD"],
+        url=cfg["DB_HOST_URL"],
+        connect=True)
 
-    def create(self):
-        print(">> create")
+def health() -> Tuple[bool, dict]:
+    result = __client.session()
+    if "ok" not in result:
+        return (False, {})
+    return (True, result)
 
-    def read(self):
-        print(">> read")
-
-    def update(self):
-        print(">> update")
-
-    def delete(self):
-        print(">> delete")
-
-    def disconnect(self) -> None:
-        self.client.disconnect()
+def disconnect() -> None:
+    __client.disconnect()
     
