@@ -1,7 +1,7 @@
 import json
 import os
 
-CONFIG_FILE = os.environ.get("CONFIG_FILE", "config.json")
+CONFIG_FILE = os.environ.get("CONFIG_FILE", "config/dev.json")
 
 try: 
     with open(CONFIG_FILE, 'r') as json_data_file:
