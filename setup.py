@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='BooksServiceTransaction',
-    packages=['BooksServiceTransaction'],
+    packages=['transaction'],
     version="0.0.1",
     include_package_data=True,
     install_requires=[
