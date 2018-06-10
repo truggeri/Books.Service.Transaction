@@ -16,7 +16,7 @@ def transaction_db():
     cfg["DB_USERNAME"] = "fakeuser"
     cfg["DB_PASSWORD"] = "fakepass"
     fixture = transaction.storage.database
-    fixture._client = mocked_couch
+    fixture.__client = mocked_couch
     return fixture
 
 @patch("transaction.storage.database.CouchDB")

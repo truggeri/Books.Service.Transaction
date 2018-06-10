@@ -7,21 +7,22 @@ from typing import Tuple
 
 from transaction.config import cfg
 
-_client: CouchDB
+__client: CouchDB
     
 def connect() -> None:
-    _client = CouchDB(
+    global __client
+    __client = CouchDB(
         user=cfg["DB_USERNAME"],
         auth_token=cfg["DB_PASSWORD"],
         url=cfg["DB_HOST_URL"],
         connect=True)
 
 def health() -> Tuple[bool, dict]:
-    result = _client.session()
+    result = __client.session()
     if "ok" not in result:
         return (False, {})
     return (True, result)
 
 def disconnect() -> None:
-    _client.disconnect()
+    __client.disconnect()
     
