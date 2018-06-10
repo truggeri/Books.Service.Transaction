@@ -104,3 +104,7 @@ ENV/
 
 # vscode
 .vscode/settings.json
+
+# CouchDB stuff
+db/*
+config/*.env

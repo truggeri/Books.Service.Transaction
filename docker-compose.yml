@@ -1,0 +1,29 @@
+version: '3.2'
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    depends_on:
+      - "couchdb"
+    env_file:
+      - ./config/dev.env
+    networks:
+      - books-network
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+        mode: host
+    volumes:
+      - .:/app
+  couchdb:
+    image: "couchdb:2.1.1"
+    networks:
+      - books-network
+    volumes:
+      - ./db/data:/opt/couchdb/data
+      - ./db/local.d:/opt/couchdb/etc/local.d
+networks:
+  books-network:
+    driver: bridge
