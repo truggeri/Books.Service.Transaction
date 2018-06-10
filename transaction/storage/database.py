@@ -3,6 +3,7 @@
 """
 
 from cloudant.client import CouchDB
+from typing import Tuple
 
 from transaction.config import cfg
 
@@ -14,9 +15,13 @@ class Database:
     
     def connect(self) -> None:
         self.client = CouchDB(
-            url=cfg["DB_HOST_URL"],
             user=cfg["DB_USERNAME"],
-            auth_token=cfg["DB_PASSWORD"])
+            auth_token=cfg["DB_PASSWORD"],
+            url=cfg["DB_HOST_URL"],
+            connect=True)
+
+    def disconnect(self) -> None:
+        self.client.disconnect()
 
     def create(self):
         print(">> create")
@@ -29,7 +34,4 @@ class Database:
 
     def delete(self):
         print(">> delete")
-
-    def disconnect(self) -> None:
-        self.client.disconnect()
     
