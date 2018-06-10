@@ -4,15 +4,17 @@ services:
     build:
       context: .
       dockerfile: dev.Dockerfile
+    depends_on:
+      - "couchdb"
+    env_file:
+      - ./config/dev.env
+    networks:
+      - books-network
     ports:
       - target: 5000
         published: 5000
         protocol: tcp
         mode: host
-    depends_on:
-      - "couchdb"
-    networks:
-      - books-network
     volumes:
       - .:/app
   couchdb:
@@ -21,6 +23,7 @@ services:
       - books-network
     volumes:
       - ./db/data:/opt/couchdb/data
+      - ./db/local.d:/opt/couchdb/etc/local.d
 networks:
   books-network:
     driver: bridge
