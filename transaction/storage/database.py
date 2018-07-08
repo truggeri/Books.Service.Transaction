@@ -9,13 +9,17 @@ from transaction.config import cfg
 
 __client: CouchDB
     
-def connect() -> None:
+def connect() -> bool:
     global __client
-    __client = CouchDB(
-        user=cfg["DB_USERNAME"],
-        auth_token=cfg["DB_PASSWORD"],
-        url=cfg["DB_HOST_URL"],
-        connect=True)
+    try:
+        __client = CouchDB(
+            user=cfg["DB_USERNAME"],
+            auth_token=cfg["DB_PASSWORD"],
+            url=cfg["DB_HOST_URL"],
+            connect=True)
+    except:
+        return False
+    return True
 
 def health() -> Tuple[bool, dict]:
     result = __client.session()

@@ -25,6 +25,10 @@ This project includes a `docker-compose.yml` file for setting up the entire deve
 docker-compose up
 ```
 
+## Database
+
+This project uses CouchDB to store records.
+
 ## Testing
 
 To run unit tests,

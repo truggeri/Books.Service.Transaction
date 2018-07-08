@@ -23,7 +23,8 @@ class HealthController(FlaskView):
 
     @route("health/db", methods=["GET"])
     def db_health(self) -> Tuple[str, int]:
-        database.connect()
+        if not database.connect():
+            return (json.dumps({"Healthy": False}), 502)
         (result, info) = database.health()
         database.disconnect()
         if not result:
