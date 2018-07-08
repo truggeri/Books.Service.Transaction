@@ -4,10 +4,11 @@
 
 from flask import Flask
 
-from .controllers import health, transaction
+from transaction.controllers.health import HealthController
+from transaction.controllers.transaction import TransactionController
 from . import config
 
 FLASKAPP = Flask(__name__)
 
-health.HealthController.register(FLASKAPP, route_base="/")
-transaction.Transaction.register(FLASKAPP, route_base="/transaction/")
+HealthController.register(FLASKAPP, route_base="/")
+TransactionController.register(FLASKAPP, route_base="/transaction/")

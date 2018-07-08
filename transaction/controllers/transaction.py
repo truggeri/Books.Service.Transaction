@@ -4,7 +4,7 @@
 
 from flask_classful import FlaskView, route
 
-class Transaction(FlaskView):
+class TransactionController(FlaskView):
 
     def __init__(self):
         pass
