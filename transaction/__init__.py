@@ -8,7 +8,7 @@ from transaction.controllers.health import HealthController
 from transaction.controllers.transaction import TransactionController
 from . import config
 
-FLASKAPP = Flask(__name__)
+app = Flask(__name__)
 
-HealthController.register(FLASKAPP, route_base="/")
-TransactionController.register(FLASKAPP, route_base="/transaction/")
+HealthController.register(app, route_base="/")
+TransactionController.register(app, route_base="/transaction/")
